@@ -49,8 +49,8 @@ class StandingsWithAdvancedRuleBookTest extends TestCase
         // Then
         $this->assertSame(
             [
-                ['Elephants', 4, 2, 3],
-                ['Tigers', 2, 4, 3],
+                ['Elephants', 2, 4, 2, 3],
+                ['Tigers', 2, 2, 4, 3],
             ],
             $actualStandings
         );

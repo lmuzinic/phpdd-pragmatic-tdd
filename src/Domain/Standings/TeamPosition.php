@@ -25,6 +25,11 @@ class TeamPosition
     private $points = 0;
 
     /**
+     * @var int
+     */
+    private $gamesPlayed = 0;
+
+    /**
      * @var Team
      */
     private $team;
@@ -51,6 +56,15 @@ class TeamPosition
     public function recordWin()
     {
         $this->points += 3;
+        $this->gamesPlayed += 1;
+    }
+
+    /**
+     * Records just that the game has been played
+     */
+    public function recordLost()
+    {
+        $this->gamesPlayed += 1;
     }
 
     /**
@@ -93,5 +107,20 @@ class TeamPosition
         return $this->team;
     }
 
+    /**
+     * @return int
+     */
+    public function getGamesPlayed()
+    {
+        return $this->gamesPlayed;
+    }
 
+    /**
+     * Records that the game has been played and awards one point
+     */
+    public function recordTie()
+    {
+        $this->gamesPlayed += 1;
+        $this->points += 1;
+    }
 }

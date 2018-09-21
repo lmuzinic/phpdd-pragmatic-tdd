@@ -47,8 +47,8 @@ class StandingsWithSimpleRuleBookTest extends TestCase
         // Then
         $this->assertSame(
             [
-                ['Tigers', 2, 1, 3],
-                ['Elephants', 1, 2, 0],
+                ['Tigers', 1, 2, 1, 3],
+                ['Elephants', 1, 1, 2, 0],
             ],
             $actualStandings
         );
@@ -76,8 +76,8 @@ class StandingsWithSimpleRuleBookTest extends TestCase
         // Then
         $this->assertSame(
             [
-                ['Elephants', 1, 0, 3],
-                ['Tigers', 0, 1, 0],
+                ['Elephants', 1, 1, 0, 3],
+                ['Tigers', 1, 0, 1, 0],
             ],
             $actualStandings
         );

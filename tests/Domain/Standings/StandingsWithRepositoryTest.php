@@ -47,8 +47,36 @@ class StandingsWithRepositoryTest extends TestCase
 
         $this->assertSame(
             [
-                ['Elephants', 1, 0, 3],
-                ['Tigers', 0, 1, 0],
+                ['Elephants', 1, 1, 0, 3],
+                ['Tigers', 1, 0, 1, 0],
+            ],
+            $actualStandings
+        );
+    }
+
+    public function testGetStandingsWhenTeamsHavePlayedTiedGame()
+    {
+        $this->repository->method('findAll')->willReturn([
+            Match::create(
+                Team::create('Tigers'),
+                Team::create('Elephants'),
+                0,
+                1
+            ),
+            Match::create(
+                Team::create('Elephants'),
+                Team::create('Tigers'),
+                1,
+                1
+            )
+        ]);
+
+        $actualStandings = $this->standings->getSortedStandings();
+
+        $this->assertSame(
+            [
+                ['Elephants', 2, 2, 1, 4],
+                ['Tigers', 2, 1, 2, 1],
             ],
             $actualStandings
         );

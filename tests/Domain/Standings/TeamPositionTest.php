@@ -24,6 +24,7 @@ class TeamPositionTest extends TestCase
     public function testGetPointsReturnsZeroWhenThereAreNoGames()
     {
         $this->assertSame(0, $this->teamPosition->getPoints());
+        $this->assertSame(0, $this->teamPosition->getGamesPlayed());
     }
 
     public function testGetPointsReturnsNineAfterThreeWins()
@@ -33,6 +34,25 @@ class TeamPositionTest extends TestCase
         $this->teamPosition->recordWin();
 
         $this->assertSame(9, $this->teamPosition->getPoints());
+        $this->assertSame(3, $this->teamPosition->getGamesPlayed());
+    }
+
+    public function testGetPointsRemainsZeroAfterLoosingGames()
+    {
+        $this->teamPosition->recordLost();
+        $this->teamPosition->recordLost();
+        $this->teamPosition->recordLost();
+
+        $this->assertSame(0, $this->teamPosition->getPoints());
+        $this->assertSame(3, $this->teamPosition->getGamesPlayed());
+    }
+
+    public function testPointsAndGamesAfterTiedGame()
+    {
+        $this->teamPosition->recordTie();
+
+        $this->assertSame(1, $this->teamPosition->getPoints());
+        $this->assertSame(1, $this->teamPosition->getGamesPlayed());
     }
 
     public function testGetPointsScoredReturnsZeroWhenThereAreNoGames()

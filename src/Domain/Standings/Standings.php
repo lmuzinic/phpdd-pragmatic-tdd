@@ -46,11 +46,19 @@ class Standings
             // Yay, home team won!
             if ($match->getHomeTeamPoints() > $match->getAwayTeamPoints()) {
                 $homeTeamPosition->recordWin();
+                $awayTeamPosition->recordLost();
             }
 
             // Boo, away team won :(
             if ($match->getAwayTeamPoints() > $match->getHomeTeamPoints()) {
                 $awayTeamPosition->recordWin();
+                $homeTeamPosition->recordLost();
+            }
+
+            // Well, nobody won :)
+            if ($match->getHomeTeamPoints() === $match->getAwayTeamPoints()) {
+                $homeTeamPosition->recordTie();
+                $awayTeamPosition->recordTie();
             }
 
             $homeTeamPosition->recordPointsScored($match->getHomeTeamPoints());
@@ -66,6 +74,7 @@ class Standings
         foreach ($this->teamPositions as $teamPosition) {
             $finalStandings[] = [
                 $teamPosition->getTeam()->getName(),
+                $teamPosition->getGamesPlayed(),
                 $teamPosition->getPointsScored(),
                 $teamPosition->getPointsAgainst(),
                 $teamPosition->getPoints()
