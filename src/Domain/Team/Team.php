@@ -2,10 +2,10 @@
 declare(strict_types=1);
 
 
-namespace BallGame\Team;
+namespace BallGame\Domain\Team;
 
 
-use BallGame\Exception\BadTeamNameException;
+use BallGame\Domain\Exception\BadTeamNameException;
 
 class Team
 {

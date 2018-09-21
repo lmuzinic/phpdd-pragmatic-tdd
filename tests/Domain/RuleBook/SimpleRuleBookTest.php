@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace BallGame\Tests\RuleBook;
+namespace BallGame\Tests\Domain\RuleBook;
 
-use BallGame\RuleBook\SimpleRuleBook;
-use BallGame\Standings\TeamPosition;
-use BallGame\Team\Team;
+use BallGame\Domain\RuleBook\SimpleRuleBook;
+use BallGame\Domain\Standings\TeamPosition;
+use BallGame\Domain\Team\Team;
 use PHPUnit\Framework\TestCase;
 
 class SimpleRuleBookTest extends TestCase

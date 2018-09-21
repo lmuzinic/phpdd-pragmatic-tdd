@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace BallGame;
+namespace BallGame\Domain;
 
 
 class GetTheBallRolling

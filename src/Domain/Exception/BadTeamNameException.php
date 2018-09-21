@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace BallGame\Exception;
+namespace BallGame\Domain\Exception;
 
 
 class BadTeamNameException extends BallGameException

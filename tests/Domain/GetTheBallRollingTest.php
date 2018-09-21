@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace BallGame\Tests;
+namespace BallGame\Tests\Domain;
 
-use BallGame\GetTheBallRolling;
+use BallGame\Domain\GetTheBallRolling;
 use PHPUnit\Framework\TestCase;
 
 class GetTheBallRollingTest extends TestCase

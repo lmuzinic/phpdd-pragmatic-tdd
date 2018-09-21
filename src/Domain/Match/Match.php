@@ -2,11 +2,11 @@
 declare(strict_types=1);
 
 
-namespace BallGame\Match;
+namespace BallGame\Domain\Match;
 
 
-use BallGame\Exception\BadMatchException;
-use BallGame\Team\Team;
+use BallGame\Domain\Exception\BadMatchException;
+use BallGame\Domain\Team\Team;
 
 class Match
 {

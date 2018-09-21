@@ -2,10 +2,10 @@
 declare(strict_types=1);
 
 
-namespace BallGame\RuleBook;
+namespace BallGame\Domain\RuleBook;
 
 
-use BallGame\Standings\TeamPosition;
+use BallGame\Domain\Standings\TeamPosition;
 
 class SimpleRuleBook implements RuleBookInterface
 {
