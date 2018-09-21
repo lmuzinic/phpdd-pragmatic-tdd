@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BallGame\Match;
 
 
+use BallGame\Exception\BadMatchException;
 use BallGame\Team\Team;
 
 class Match
@@ -71,6 +72,10 @@ class Match
 
     public static function create(Team $homeTeam, Team $awayTeam, int $homeTeamPoints, int $awayTeamPoints)
     {
+        if ($homeTeam->getName() === $awayTeam->getName()) {
+            throw new BadMatchException();
+        }
+
         return new self($homeTeam, $awayTeam, $homeTeamPoints, $awayTeamPoints);
     }
 }
